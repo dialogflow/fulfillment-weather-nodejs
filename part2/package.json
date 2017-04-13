@@ -1,0 +1,19 @@
+{
+  "name": "apiai-getting-starting-part2",
+  "description": "A sample webhook implementation for a API.AI weather bot",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "engines": {
+    "node": "~4.2"
+  },
+  "scripts": {
+    "lint": "semistandard --fix \"**/*.js\"",
+    "start": "functions deploy factsAboutGoogle --trigger-http",
+    "deploy": "gcloud beta functions deploy factsAboutGoogle --trigger-http --stage-bucket <storage_bucket_name>"
+  },
+  "devDependencies": {
+    "semistandard": "^9.1.0"
+  }
+}
