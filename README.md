@@ -1,5 +1,5 @@
 # API.AI Getting Started Sample (Weather)
-========================================================
+
 ## Setup Instructions
 # Pre-requisites
  1. API.AI Agent: Create an account on API.AI and import or restore the agent in <code>part1/weather-step1.zip</code>, <code>part2/weather-step2.zip</code>, or <code>part3/weather-step3.zip</code> for your agent (or create a new one)
