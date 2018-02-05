@@ -16,7 +16,7 @@
 const http = require('http');
 
 const host = 'api.worldweatheronline.com';
-const wwoApiKey = '';
+const wwoApiKey = '3c6762e1450a44e0a2693948180502';
 
 exports.weatherWebhook = (req, res) => {
   // Get the city and date from the request
