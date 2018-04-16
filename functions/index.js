@@ -14,32 +14,29 @@
 'use strict';
 
 const http = require('http');
+const functions = require('firebase-functions');
 
 const host = 'api.worldweatheronline.com';
-const wwoApiKey = '';
+const wwoApiKey = '<ENTER_WWO_API_KEY_HERE>';
 
-exports.weatherWebhook = (req, res) => {
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => {
   // Get the city and date from the request
-  let city = req.body.result.parameters['geo-city']; // city is a required param
+  let city = req.body.queryResult.parameters['geo-city']; // city is a required param
 
   // Get the date for the weather forecast (if present)
   let date = '';
-  if (req.body.result.parameters['date']) {
-    date = req.body.result.parameters['date'];
+  if (req.body.queryResult.parameters['date']) {
+    date = req.body.queryResult.parameters['date'];
     console.log('Date: ' + date);
   }
 
   // Call the weather API
   callWeatherApi(city, date).then((output) => {
-    // Return the results of the weather API to API.AI
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ 'speech': output, 'displayText': output }));
-  }).catch((error) => {
-    // If there is an error let the user know
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ 'speech': error, 'displayText': error }));
+    res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
+  }).catch(() => {
+    res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
   });
-};
+});
 
 function callWeatherApi (city, date) {
   return new Promise((resolve, reject) => {
@@ -72,7 +69,8 @@ function callWeatherApi (city, date) {
         resolve(output);
       });
       res.on('error', (error) => {
-        reject(error);
+        console.log(`Error calling the weather API: ${error}`)
+        reject();
       });
     });
   });
