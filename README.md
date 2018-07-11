@@ -1,11 +1,11 @@
 # Dialogflow Fulfillment Weather Sample Node.js
 
 ## Setup: WWO Weather API
- 1. Get a WWO API key, by going to https://developer.worldweatheronline.com/api/ and following the instructions to get an API key that includes forecasts 14 days into the future
- 1. Paste your API key for the value of the `wwoApiKey`varible on line 20 of `functions/index.js`
+ 1. Get a WWO Local Weather REST API key via https://developer.worldweatheronline.com/api/
+ 1. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
 
 ## Setup: Dialogflow and fulfillment
-Choose one of the three options listed below for setup.  You only need to complete one of the three options below to setup this sample.
+**Select only one of the three options listed below for setup.**  
 
 ### Option 1: Add to Dialogflow (recommended)
 Click on the **Add to Dialogflow** button below and follow the prompts to create a new agent:
@@ -32,6 +32,11 @@ Click on the **Add to Dialogflow** button below and follow the prompts to create
 1. Add your project to the sample with `firebase use [project ID]` [find your project ID here](https://dialogflow.com/docs/agents#settings)
 1. Run `firebase deploy --only functions:dialogflowFulfillmentLibAdvancedSample`
 1. Paste the URL into your Dialogflow agent's fulfillment
+
+## Before Running API calls
+* Make sure to go to billing section before running API calls.
+* To do this, first go to settings => Google Cloud link in Project ID section.
+* From the Google Cloud Platform, go to Billing under the top left navigation.
 
 ## References and How to report bugs
 * Dialogflow documentation: [https://docs.dialogflow.com](https://docs.dialogflow.com).
