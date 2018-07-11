@@ -3,6 +3,8 @@
 ## Setup: WWO Weather API
  1. Get a WWO Local Weather REST API key via https://developer.worldweatheronline.com/api/
  1. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
+ 1. Click `Deploy` to save your webhook and cloud function. 
+
 
 ## Setup: Dialogflow and fulfillment
 **Select only one of the three options listed below for setup.**  
