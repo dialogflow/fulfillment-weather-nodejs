@@ -3,7 +3,7 @@
 ## Setup: WWO Weather API
  1. Get a WWO Local Weather REST API key via https://developer.worldweatheronline.com/api/
  1. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
- 1. Click `Deploy` to save your webhook and cloud function. 
+ 1. Click `Deploy` to save your webhook and cloud function.
 
 
 ## Setup: Dialogflow and fulfillment
@@ -36,7 +36,7 @@ Click on the **Add to Dialogflow** button below and follow the prompts to create
 1. Paste the URL into your Dialogflow agent's fulfillment
 
 ## Before Running API calls
-* Make sure to go to billing section before running API calls.
+* Make sure to go to billing section before running API calls. For more info about this: https://dialogflow.com/docs/concepts/google-projects-faq
 * To do this, first go to settings => Google Cloud link in Project ID section.
 * From the Google Cloud Platform, go to Billing under the top left navigation.
 
