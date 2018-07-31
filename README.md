@@ -1,49 +1,54 @@
-# Dialogflow Fulfillment Weather Sample Node.js
+# Dialogflow Fulfillment: Node.js Weather Sample
 
-## Setup: WWO Weather API
- 1. Get a WWO Local Weather REST API key via https://developer.worldweatheronline.com/api/
- 1. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
- 1. Click `Deploy` to save your webhook and cloud function.
+## WWO Weather API Setup
+ 1. Get a WWO Local Weather REST API key from https://developer.worldweatheronline.com/api/
+ 2. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
+ 3. Select **Deploy**.
 
 
-## Setup: Dialogflow and fulfillment
-**Select only one of the three options listed below for setup.**  
+## Dialogflow and Fulfillment Setup
+Select **only one** of three options below.
 
 ### Option 1: Add to Dialogflow (recommended)
-Click on the **Add to Dialogflow** button below and follow the prompts to create a new agent:
-
-[![Weather Sample](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Weather Sample")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https%3A%2F%2Fstorage.googleapis.com%2Fdialogflow-oneclick%2Fweather-agent.zip&agentName=WeatherSample)
+Select [![Weather Sample](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Weather Sample")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https%3A%2F%2Fstorage.googleapis.com%2Fdialogflow-oneclick%2Fweather-agent.zip&agentName=WeatherSample) to create a new agent.
 
 ### Option 2: Dialogflow Inline Editor
-1. Create a Dialogflow agent
-1. Go to your agent's settings and [Restore from zip](https://dialogflow.com/docs/agents#export_and_import) using the `weather-agent.zip` in this directory (Note: this will overwrite your existing agent)
-1. [Sign up for or sign into Dialogflow](https://console.dialogflow.com/api-client/#/login)
-1. [Enable the Cloud Function for Firebase inline editor](https://dialogflow.com/docs/fulfillment#cloud_functions_for_firebase)
-1. Change the name of the function in `functions/index.js` from `dialogflowFulfillmentLibAdvancedSample` to `dialogflowFirebaseFulfillment`
-1. Copy the code in `functions/index.js` to the `index.js` file in the Dialogflow Cloud Function for Firebase inline editor.
-1. Copy the code in `functions/package.json` to the `package.json` file in the Dialogflow Cloud Function for Firebase inline editor.
-1. Click `Deploy`
+1. `git clone https://github.com/dialogflow/fulfillment-weather-nodejs.git`
+2. Create [Dialogflow Agent](https://console.dialogflow.com/).
+3. In Dialogflow console > **Settings** ⚙ > **Restore from Zip** with `weather-agent.zip` in this Github repo.<sup>A.</sup>
+4. Under Fulfillment > **Enable Inline Editor**.
+5. Change the name of the function in `functions/index.js` from `dialogflowFulfillmentLibAdvancedSample` to `dialogflowFirebaseFulfillment`
+6. In the **Inline editor** > copy the contents of `functions/index.js` into `index.js`.
+7. Select **Deploy**.
+
+  <sup>A.</sup>Note: **Restore from Zip** will overwrite any existing agent.
 
 ### Option 3: Firebase CLI
-1. Create a Dialogflow agent
-1. Go to your agent's settings and [Restore from zip](https://dialogflow.com/docs/agents#export_and_import) using the `weather-agent.zip` in this directory (Note: this will overwrite your existing agent)
-1. `cd` to the `functions` directory
-1. Run `npm install`
-1. Install the Firebase CLI by running `npm install -g firebase-tools`
-1. Login to your Google account with `firebase login`
-1. Add your project to the sample with `firebase use [project ID]` [find your project ID here](https://dialogflow.com/docs/agents#settings)
-1. Run `firebase deploy --only functions:dialogflowFulfillmentLibAdvancedSample`
-1. Paste the URL into your Dialogflow agent's fulfillment
+1. `git clone https://github.com/dialogflow/fulfillment-weather-nodejs.git`
+2. Create [Dialogflow Agent](https://console.dialogflow.com/)
+3. In Dialogflow console under **Settings** ⚙ > [Restore from Zip](https://dialogflow.com/docs/agents#export_and_import) using the `weather-agent.zip` in this Github repo<sup>A.</sup>
+4. `cd` to the `functions` directory
+5. Run `npm install`
+6. Install the Firebase CLI with `npm install -g firebase-tools`
+7. Login to your Google account with `firebase login`
+8. Add your project to the sample with `firebase use [project ID]`
+  + In Dialogflow console under **Settings** ⚙ > **General** tab > copy **Project ID**.
+9. Run `firebase deploy --only functions:dialogflowFulfillmentLibAdvancedSample`
+10. When successfully deployed, visit the **Project Console** link > **Functions** > **Dashboard**
+  + Copy the link under the events column. For example: `https://us-central1-<PROJECTID>.cloudfunctions.net/<FUNCTIONNAME>`
+11. Back in Dialogflow Console > **Fulfullment** > **Enable** Webhook.
+12. Paste the URL from the Firebase Console’s events column into the **URL** field > **Save**.
 
-## Before Running API calls
-* Make sure to go to billing section before running API calls. For more info about this: https://dialogflow.com/docs/concepts/google-projects-faq
-* To do this, first go to settings => Google Cloud link in Project ID section.
-* From the Google Cloud Platform, go to Billing under the top left navigation.
+## Before Making API Calls Enable Billing
+1. In Dialogflow Console > **Settings** ⚙ > select **Google Cloud** link in Project ID section.
+2. From Google Cloud Platform > **menu** ☰ > **Enable Billing**.
 
-## References and How to report bugs
-* Dialogflow documentation: [https://docs.dialogflow.com](https://docs.dialogflow.com).
-* If you find any issues, please open a bug on [GitHub](https://github.com/dialogflow/dialogflow-fulfillment-nodejs/issues).
-* Questions are answered on [StackOverflow](https://stackoverflow.com/questions/tagged/dialogflow).
+## References & Issues
+* Questions? Try [StackOverflow](https://stackoverflow.com/questions/tagged/dialogflow).
+* Find a bug? Report it on [GitHub](https://github.com/dialogflow/fulfillment-webhook-json/issues).
+* Dialogflow [Documentation](https://dialogflow.com/docs/getting-started/basics).
+* For more info on [Cloud Functions for Firebase Inline Editor](https://dialogflow.com/docs/fulfillment#cloud_functions_for_firebase).
+* For more info about [billing](https://dialogflow.com/docs/concepts/google-projects-faq).
 
 ## How to make contributions?
 Please read and follow the steps in the CONTRIBUTING.md.
