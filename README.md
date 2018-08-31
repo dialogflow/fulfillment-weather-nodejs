@@ -4,10 +4,16 @@
 Select **only one** of three options below.
 
 ### Option 1: Add to Dialogflow (recommended)
-Select [![Weather Sample](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Weather Sample")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https%3A%2F%2Fstorage.googleapis.com%2Fdialogflow-oneclick%2Fweather-agent.zip&agentName=WeatherSample) to create a new agent.
+To create this agent from our template, click:
+
+<a href="https://console.dialogflow.com/api-client/oneclick?templateUrl=https://oneclickgithub.appspot.com/dialogflow/fulfillment-weather-nodejs&agentName=WeatherSample" target="blank">
+  <img src="https://dialogflow.com/images/deploy.png">
+</a>
+
 1. Get a WWO Local Weather REST API key from https://developer.worldweatheronline.com/api/
 2. Replace <ENTER_WWO_API_KEY_HERE> with your WWO API key on line 20 of `functions/index.js`
 3. Select **Deploy**.
+4. In Dialogflow Console > **Settings** ⚙ > select **Google Cloud** link in Project ID section. From Google Cloud Platform > **menu** ☰ > **Enable Billing**.
 
 ### Option 2: Dialogflow Inline Editor
 1. `git clone https://github.com/dialogflow/fulfillment-weather-nodejs.git`
@@ -49,8 +55,10 @@ Select [![Weather Sample](https://storage.googleapis.com/dialogflow-oneclick/dep
 | Name                                 | Language                         |
 | ------------------------------------ |:---------------------------------|
 | [Fulfillment Webhook JSON](https://github.com/dialogflow/fulfillment-webhook-json)| JSON |
+| [Fulfillment & Firestore](https://github.com/dialogflow/fulfillment-firestore-nodejs) | Node.js |
 | [Dialogflow Console Template](https://github.com/dialogflow/fulfillment-webhook-nodejs)| Node.js
 | [Bike Shop-Google Calendar API](https://github.com/dialogflow/fulfillment-bike-shop-nodejs)| Node.js|
+| [Multi-language/locale](https://github.com/dialogflow/fulfillment-multi-locale-nodejs) | Node.js |
 | [WWO Weather API](https://github.com/dialogflow/fulfillment-weather-nodejs)| Node.js |
 | [Alexa Importer](https://github.com/dialogflow/fulfillment-importer-nodejs) | Node.js |
 | [Temperature Trivia](https://github.com/dialogflow/fulfillment-temperature-converter-nodejs) | Node.js |
