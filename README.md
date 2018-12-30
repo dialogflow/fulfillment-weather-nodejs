@@ -27,7 +27,7 @@ To create this agent from our template:
 9. Login to your Google account with `firebase login`
 10. Add your project to the sample with `firebase use [project ID]`
       + In Dialogflow console under **Settings** ⚙ > **General** tab > copy **Project ID**.
-11. Run `firebase deploy --only functions:dialogflowFulfillmentLibAdvancedSample`
+11. Run `firebase deploy --only functions:dialogflowFirebaseFulfillment`
 12. When successfully deployed, visit the **Project Console** link > **Functions** > **Dashboard**
       + Copy the link under the events column.
       + For example: `https://us-central1-<PROJECTID>.cloudfunctions.net/<FUNCTIONNAME>`
