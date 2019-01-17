@@ -17,7 +17,7 @@ const http = require('http');
 const functions = require('firebase-functions');
 
 const host = 'api.worldweatheronline.com';
-const wwoApiKey = '<ENTER_WWO_API_KEY_HERE>';
+const wwoApiKey = 'ENTER_WWO_API_KEY_HERE';
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => {
   // Get the city and date from the request
@@ -32,18 +32,19 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => 
 
   // Call the weather API
   callWeatherApi(city, date).then((output) => {
-    res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
+  return  res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
   }).catch(() => {
-    res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
+  return res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
   });
 });
 
 function callWeatherApi (city, date) {
   return new Promise((resolve, reject) => {
     // Create the path for the HTTP request to get the weather
-    let path = '/premium/v1/weather.ashx?format=json&num_of_days=1' +
-      '&q=' + encodeURIComponent(city) + '&key=' + wwoApiKey + '&date=' + date;
-    console.log('API Request: ' + host + path);
+       let path = '/premium/v1/weather.ashx?' + '&key=' + wwoApiKey +'&q=' + encodeURIComponent(city) 
+       + '&format=json&num_of_days=1' + '&date=' + date;
+       console.log('API Request: ' + host + path);
+
 
     // Make the HTTP request to get the weather
     http.get({host: host, path: path}, (res) => {
