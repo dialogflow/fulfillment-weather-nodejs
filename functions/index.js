@@ -25,8 +25,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => 
 
   // Get the date for the weather forecast (if present)
   let date = '';
-  if (req.body.queryResult.parameters['date']) {
-    date = req.body.queryResult.parameters['date'];
+  if (req.body.queryResult.parameters.date) {
+    date = req.body.queryResult.parameters.date;
     console.log('Date: ' + date);
   }
 
@@ -52,24 +52,24 @@ function callWeatherApi (city, date) {
       res.on('end', () => {
         // After all the data has been received parse the JSON for desired data
         let response = JSON.parse(body);
-        let forecast = response['data']['weather'][0];
-        let location = response['data']['request'][0];
-        let conditions = response['data']['current_condition'][0];
-        let currentConditions = conditions['weatherDesc'][0]['value'];
+        let forecast = response.data.weather[0];
+        let location = response.data.request[0];
+        let conditions = response.data.current_condition[0];
+        let currentConditions = conditions.weatherDesc[0].value;
 
         // Create response
-        let output = `Current conditions in the ${location['type']} 
-        ${location['query']} are ${currentConditions} with a projected high of
-        ${forecast['maxtempC']}°C or ${forecast['maxtempF']}°F and a low of 
-        ${forecast['mintempC']}°C or ${forecast['mintempF']}°F on 
-        ${forecast['date']}.`;
+        let output = `Current conditions in the ${location.type]} 
+        ${location.query} are ${currentConditions} with a projected high of
+        ${forecast.maxtempC}°C or ${forecast.maxtempF}°F and a low of 
+        ${forecast.mintempC}°C or ${forecast.mintempF}°F on 
+        ${forecast.date}.`;
 
         // Resolve the promise with the output text
         console.log(output);
         resolve(output);
       });
       res.on('error', (error) => {
-        console.log(`Error calling the weather API: ${error}`)
+        console.log(`Error calling the weather API: ${error}`);
         reject();
       });
     });
